@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+section.intro {
+  padding: 20vh;
+  animation-name: myAnimation;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  animation-direction: alternate;
+  color: #111;
+  font-family: "Roboto", sans-serif;
+  
+}
+@keyframes myAnimation {
+  0% {
+   background-color: #e76f51;
+    /*background:url("https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-position:center ;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+ 
+  }
+  25% {
+    background-color: #e9c46a;
+    /*background:url("https://images.unsplash.com/photo-1579532536935-619928decd08?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80");
+    background-position:top ;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+  }
+  50% {
+   background-color: #67a7fc;
+   /*
+  background:url("https://images.unsplash.com/photo-1583752028088-91e3e9880b46?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80");
+  background-position:center ;
+  background-repeat: no-repeat;
+  background-size: cover;*/
+  }
+
+  100% {
+    background-color: #07e27c;/*
+    background-size: cover;
+    background:url("https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80");
+    background-position:center ;
+    background-repeat: no-repeat;
+    animation-duration: 30s;*/
+
+    
+  }
+}
+section.intro h1 {
+  padding-bottom: 8px;
+  font-size: 40px;
+  font-weight: 700;
+}
+section.intro p {
+  font-size: 20px;
+  padding-bottom: 40px;
+}
+.info {
+  font-size: 10px;
+  color: #111;
+}
+  
+section.services {
+  max-width: 100vw;
+ margin: 15vw;
+ margin-top: 20px;
+
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;*/
+}
+section.services h1 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+h1::first-letter {
+  font-size: 2em;
+  color: rgb(248, 9, 9);
+  font-weight: 800;
+}
+.col {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /*margin: 20vh;
+  margin-top: 0;*/
+}
+section.services .column {
+  border: 2px solid gainsboro;
+  width: 25vw;
+  height: 70vh;
+  margin: 5vh;
+  
+}
+img {
+  width: 318px;
+  max-width: 100%;
+}
+.description {
+  padding: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  section.intro {
+    padding: 25px;
+    padding-top: 40px;
+  }
+  section.intro h1 {
+    padding-bottom: 5px;
+    font-size: 25px;
+    font-weight: 700;
+  }
+  section.intro p {
+    font-size: 18px;
+    padding-bottom: 30px;
+    font-weight: 500;
+  }
+  section.services {
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  section.services h1 {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  h1::first-letter {
+    font-size: 1.7em;
+    font-weight: 800;
+    color: rgb(248, 9, 9);
+  }
+  section.services .column {
+    border: 2px solid gainsboro;
+    /* width: 50vw;*80%;*/
+    height: 100%;
+    margin: 20px auto;
+    width: 100%;
+  }
+  img {
+    width: 100vw;
+  }
+  .description {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  
+  section.services .column {
+    border: 2px solid gainsboro;
+    /*width: 50vw;*80%;*/
+    height: 90%;
+    margin: 30px auto;
+    width: 100%;
+
+  }
+  img{
+    width: 100vw;
+  }
+  
+  .description {
+    padding: 20px;
+  }
+}
+
+
+
+

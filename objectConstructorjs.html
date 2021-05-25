@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Constructor Exercise</title>
+</head>
+<body>
+   <script>
+
+//Write a constructor for making “Book” objects. We will revisit this in the project at the end of this lesson. Your book objects should have the book’s title, author, the number of pages, and whether or not you have read the book
+function book(title,author,pages,readUnread){
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readUnread = readUnread;
+    this.info = function(){
+   console.log(`${title} by ${author} consisting of ${pages} pages,${readUnread}`);
+    }
+}
+
+const myBook = new book('the Kite Runner','Khaled Husseni','200','read.');
+console.log(myBook.info());
+//console.log(myBook);
+
+/////////////////////////////////PROTOTYPPE////////////////////////
+
+/*All objects in JavaScript have a prototype. Stated simply, the prototype is another object that the original object inherits from, which is to say, the original object has access to all of its prototype’s methods and properties.*
+
+
+First, every JavaScript function has a prototype property (this property is empty by default), and you attach properties and methods on this prototype property when you want to implement inheritance. This prototype property is not enumerable; that is, it isn’t accessible in a for/in loop.The prototype property is used primarily for inheritance; you add methods and properties on a function’s prototype property to make those methods and properties available to instances of that function.
+
+
+The second concept with prototype in JavaScript is the prototype attribute. Think of the prototype attribute as a characteristic of the object; this characteristic tells us the object’s “parent”. In simple terms: An object’s prototype attribute points to the object’s “parent”—the object it inherited its properties from.t is set automatically when you create a new object.
+
+
+
+So, there are two general ways an object’s prototype attribute is set when an object is created:
+If an object is created with an object literal (var newObj = {}), it inherits properties from Object.prototype and we say its prototype object (or prototype attribute) is Object.prototype.
+If an object is created from a constructor function such as new Object (), new Fruit () or new Array () or new Anything (), it inherits from that constructor (Object (), Fruit (), Array (), or Anything ()). For example, with a function such as Fruit (), each time we create a new instance of Fruit (var aFruit = new Fruit ()), the new instance’s prototype is assigned the prototype from the Fruit constructor, which is Fruit.prototype/
+
+
+//////////////////////////////////////////////////////////////////
+Summary of prototypal inheritance
+
+
+In JavaScript, all objects have a hidden [[Prototype]] property that’s either another object or null.
+We can use obj.__proto__ to access it (a historical getter/setter, there are other ways, to be covered soon).
+The object referenced by [[Prototype]] is called a “prototype”.
+If we want to read a property of obj or call a method, and it doesn’t exist, then JavaScript tries to find it in the prototype.
+Write/delete operations act directly on the object, they don’t use the prototype (assuming it’s a data property, not a setter).
+If we call obj.method(), and the method is taken from the prototype, this still references obj. So methods always work with the current object even if they are inherited.
+The for..in loop iterates over both its own and its inherited properties. All other key/value-getting methods only operate on the object itself.
+
+
+
+So far you have seen several ways of making an object inherit the prototype from another object. At this point in history, the recommended way of setting the prototype of an object is Object.create ( here is the documentation for that method.) Object.create very simply returns a new object with the specified prototype and any additional properties you want to add. For our purposes you use it like so:
+
+function Student() {
+}
+
+Student.prototype.sayName = function() {
+  console.log(this.name)
+}
+
+function EighthGrader(name) {
+  this.name = name
+  this.grade = 8
+}
+
+EighthGrader.prototype = Object.create(Student.prototype)
+
+const carl = new EighthGrader("carl")
+carl.sayName() // console.logs "carl"
+carl.grade // 8
+
+A warning… this doesn’t work:
+
+EighthGrader.prototype = Student.prototype
+because it will literally set EighthGrader’s prototype to Student.prototype (i.e. not a copy), which could cause problems if you want to edit something in the future. 
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </script> 
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!--1)The background-attachment property is used to control the scrolling of an image in the background.Eg:
+    background-attachment:fixed;
+    background-attachment:scroll;
+    to make the background scroll,we need to define above both.
+
+    2)CSS background shorthand property:
+    To shorten the code, it is also possible to specify all the background properties in one single property. This is called a shorthand property.
+
+Instead of writing:
+
+body {
+  background-color: #ffffff;
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+Use the shorthand property to set the background properties in one declaration:
+
+body {
+  background: #ffffff url("img_tree.png") no-repeat right top;
+}
+When using the shorthand property the order of the property values is:
+
+background-color
+background-image
+background-repeat
+background-attachment
+background-position
+
+
+
+3)MARGIN:If the margin property has three values:
+
+margin: 25px 50px 75px;
+top margin is 25px
+right and left margins are 50px
+bottom margin is 75px
+
+If the margin property has two values:
+
+margin: 25px 50px;
+top and bottom margins are 25px
+right and left margins are 50px
+
+You can set the margin property to auto to horizontally center the element within its container.
+The element will then take up the specified width, and the remaining space will be split equally between the left and right margins.
+
+Example
+Use margin: auto:
+
+div {
+  width: 300px;
+  margin: auto;
+  border: 1px solid red;
+}
+
+4)Margin Collapse
+Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins.
+
+This does not happen on left and right margins! Only top and bottom margins!
+
+Look at the following example:
+
+Example
+Demonstration of margin collapse:
+
+h1 {
+  margin: 0 0 50px 0;
+}
+
+h2 {
+  margin: 20px 0 0 0;
+}
+In the example above, the <h1> element has a bottom margin of 50px and the <h2> element has a top margin set to 20px.
+
+Common sense would seem to suggest that the vertical margin between the <h1> and the <h2> would be a total of 70px (50px + 20px). But due to margin collapse, the actual margin ends up being 50px.
+
+
+5)CSS allows you to add multiple background images for an element, through the background-image property.
+
+The different background images are separated by commas, and the images are stacked on top of each other, where the first image is closest to the viewer.
+#example1 {
+  background-image: url(img_flwr.gif), url(paper.gif);
+  background-position: right bottom, left top;
+  background-repeat: no-repeat, repeat;
+}
+The CSS background-size property allows you to specify the size of background images.
+
+The size can be specified in lengths, percentages, or by using one of the two keywords: contain or cover.
+
+6)The contain keyword scales the background image to be as large as possible (but both its width and its height must fit inside the content area). As such, depending on the proportions of the background image and the background positioning area, there may be some areas of the background which are not covered by the background image.
+
+The cover keyword scales the background image so that the content area is completely covered by the background image (both its width and height are equal to or exceed the content area). As such, some parts of the background image may not be visible in the background positioning area.
+
+
+
+
+
+
+

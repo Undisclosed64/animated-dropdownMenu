@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      //////////////////////////Continuing after two page note of copy///////////////////////////
+
+      //A quick note about line 3 from the factory function example. In 2015, a handy new shorthand for creating objects was added into JavaScript. Without the shorthand, line 3 would have looked something like this:
+
+return {name: name, age: age, sayHello: sayHello}
+        
+//A HACK
+
+const name = "Maynard"
+const color = "red"
+const number = 34
+const food = "rice"
+
+// logging all of these variables might be a useful thing to do,
+// but doing it like this can be somewhat confusing.
+console.log(name, color, number, food) // Maynard red 34 rice
+
+// if you simply turn them into an object with brackets,
+// the output is much easier to decipher:
+console.log({name, color, number, food})
+ // { name: 'Maynard', color: 'red', number: 34, food: 'rice' }
+
+
+ ///////////////////////  SCOPE IN JS ////////////////////////////////
+ 
+ /*Scope and context are not the same.
+ context === this ////////context is the value of this 
+ scope === variable access
+
+ Scope is the accessibility of variables, functions, and objects in some particular part of your code during runtime. In other words, scope determines the visibility of variables and other resources in areas of your code.Scopes can be globally or locally defined.
+
+Factory Function
+The factory function pattern is similar to constructors, but instead of using new to create an object, factory functions simply set up and return the new object when you call the function. Check out this example:
+
+const personFactory = (name, age) => {
+  const sayHello = () => console.log('hello!');
+  return { name, age, sayHello };
+};
+
+const jeff = personFactory('jeff', 27);
+
+console.log(jeff.name); // 'jeff'
+
+jeff.sayHello();
+
+
+ Function scope
+All scopes in JavaScript are created with Function Scope only, they aren’t created by for or while loops or expression statements like if or switch. New functions = new scope - that’s the rule.
+
+Lexical Scope
+Whenever you see a function within another function, the inner function has access to the scope in the outer function, this is called Lexical Scope or Closure - also referred to as Static Scope.
+
+Scope Chain
+Scope chains establish the scope for a given function. Each function defined has its own nested scope as we know, and any function defined within another function has a local scope which is linked to the outer function - this link is called the chain. It’s always the position in the code that defines the scope. When resolving a variable, JavaScript starts at the innermost scope and searches outwards until it finds the variable/object/function it was looking for.
+
+CLOSURE
+What is a closure?
+A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function’s variables — a scope chain.
+The closure has three scope chains:
+it has access to its own scope — variables defined between its curly brackets
+it has access to the outer function’s variables
+it has access to the global variables.
+
+The inner function can access the variables of the enclosing function due to closures in JavaScript. In other words, the inner function preserves the scope chain of the enclosing function at the time the enclosing function was executed, and thus can access the enclosing function’s variables.
+
+/* Read this article
+https://medium.com/@prashantramnyc/javascript-closures-simplified-d0d23fa06ba4 
+
+
+SCOPE and 'this' keyword
+
+see the particular part from this article
+https://ultimatecourses.com/blog/everything-you-wanted-to-know-about-javascript-scope
+
+Private and Public Scope
+By using JavaScript design patterns, such as the Module pattern for example, we can create public and private scope. A simple way to create private scope, is by wrapping our functions inside a function. As we’ve learned, functions create scope, which keeps things out of the global scope:
+(function () {
+  var myFunction = function () {
+    // do some stuff here
+  };
+})();
+But when we come to calling our function, it would be out of scope:
+
+(function () {
+  var myFunction = function () {
+    // do some stuff here
+  };
+})();
+
+myFunction(); // Uncaught ReferenceError: myFunction is not defined
+
+Success! We’ve created private scope. But what if I want the function to be public? There’s a great pattern (called the Module Pattern which allows us to scope our functions correctly, using private and public scope and an Object. Here I grab my global namespace, called Module, which contains all of my relevant code for that module:
+
+// define module
+var Module = (function () {
+  return {
+    myMethod: function () {
+      console.log('myMethod has been called.');
+    }
+  };
+})();
+
+// call module + methods
+Module.myMethod();
+
+The return statement here is what returns our public methods, which are accessible in the global scope - but are namespaced. This means our Module takes care of our namespace, and can contain as many methods as we want. We can extend the Module as we wish:
+
+So what about private methods? This is where a lot of developers go wrong and pollute the global namespace by dumping all their functions in the global scope. Functions that help our code work do not need to be in the global scope, only the API calls do - things that need to be accessed globally in order to work. Here’s how we can create private scope, by not returning functions:
+
+var Module = (function () {
+  var privateMethod = function () {
+
+  };
+  return {
+    publicMethod: function () {
+
+    }
+  };
+})();
+Here’s an interesting twist though, anything in the same scope has access to anything in the same scope, even after the function has been returned. Which means, our public methods have access to our private ones, so they can still interact but are unaccessible in the global scope.
+ return {
+    publicMethod: function () {
+      // has access to `privateMethod`, we can call it:
+      // privateMethod();
+    }
+  };
+})();
+This allows a very powerful level of interactivity, as well as code security. A very important part of JavaScript is ensuring security, which is exactly why we can’t afford to put all functions in the global scope as they’ll be publicly available, which makes them open to vulnerable attacks.
+
+Here’s an example of returning an Object, making use of public and private methods:
+
+var Module = (function () {
+  var myModule = {};
+  var privateMethod = function () {
+
+  };
+  myModule.publicMethod = function () {
+
+  };
+  myModule.anotherPublicMethod = function () {
+
+  };
+  return myModule; // returns the Object with public methods
+})();
+
+// usage
+Module.publicMethod();
+
+*/
+////////////////////////Left to understand////////////////
+/*https://medium.com/javascript-scene/3-different-kinds-of-prototypal-inheritance-es6-edition-32d777fa16c9
+*/
+/*
+The Module Pattern
+Quick sidenote: ES6 introduced a new feature in JavaScript called ‘modules’. These are essentially a syntax for importing and exporting code between different JavaScript files. They’re very powerful 
+
+Modules are actually very similar to factory functions. The main difference is how they’re created.
+const calculator = (() => {
+  const add = (a, b) => a + b;
+  const sub = (a, b) => a - b;
+  const mul = (a, b) => a * b;
+  const div = (a, b) => a / b;
+  return {
+    add,
+    sub,
+    mul,
+    div,
+  };
+})();
+
+calculator.add(3,5) // 8
+calculator.sub(6,2) // 4
+calculator.mul(14,5534) // 77476
+The concepts are exactly the same as the factory function. However, instead of creating a factory that we can use over and over again to create multiple objects, the module pattern wraps the factory in an IIFE (Immediately Invoked Function Expression).Module is created as an IIFE (immediately invoked function expression) with a function inside:
+const SomeModule = (function() {})();
+
+ Accessing a module is actually accessing whatever it returns.But, do not return a single function (although it is possible), return an object with it!
+
+The primary reason to use an IIFE is to obtain data privacy.
+The concept is simple: write a function, wrap it in parentheses, and then immediately call the function by adding () to the end of it.
+
+
+//////////////////OBJECT.ASSIGN///////////////
+The Object.assign() method copies all enumerable own properties from one or more source objects to a target object. It returns the target object.
+
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target);
+// expected output: Object { a: 1, b: 4, c: 5 }
+
+console.log(returnedTarget);
+// expected output: Object { a: 1, b: 4, c: 5 }
+
+Syntax
+Object.assign(target, ...sources)
+Parameters
+target
+The target object — what to apply the sources’ properties to, which is returned after it is modified.
+sources
+The source object(s) — objects containing the properties you want to apply.
+Return value
+The target object.
+Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.
+
+
+
+
+////////////////NAMESPACING////////////////////////
+Namespacing is a technique that is used to avoid naming collisions in our programs. For example, it’s easy to imagine scenarios where you could write multiple functions with the same name. In our calculator example, what if we had a function that added things to our HTML display, and a function that added numbers and operators to our stack as the users input them? It is conceivable that we would want to call all three of these functions add which, of course, would cause trouble in our program. If all of them were nicely encapsulated inside of an object, then we would have no trouble: calculator.add(), displayController.add(), operatorStack.add().
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

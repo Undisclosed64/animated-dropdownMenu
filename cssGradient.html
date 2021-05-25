@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   /*1:CSS gradients let you display smooth transitions between two or more specified colors.CSS defines two types of gradients:
+
+    Linear Gradients (goes down/up/left/right/diagonally)
+    Radial Gradients (defined by their center) refer to w3 schools when needed to cover.
+    To create a linear gradient you must define at least two color stops. Color stops are the colors you want to render smooth transitions among. You can also set a starting point and a direction (or an angle) along with the gradient effect.
+
+    Syntax
+    background-image: linear-gradient(direction, color-stop1, color-stop2, ...),top to bottom direction is default.Below is an example.*/
+   .container1{
+       width: 100vh;
+       height: 100vh;
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       background-image: linear-gradient(red,rgb(240, 236, 9));
+      
+   }
+   /*Direction - Left to Right
+    The following example shows a linear gradient that starts from the left. It starts red, transitioning to yellow:
+     Example
+    #grad {
+     background-image: linear-gradient(to right, red , yellow);
+     }
+*/
+body{
+   display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.container2{
+    width: 100vh;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(to right, red , yellow);
+    margin-bottom: 50px;
+
+
+}
+/*Direction - Diagonal
+You can make a gradient diagonally by specifying both the horizontal and vertical starting positions.
+The following example shows a linear gradient that starts at top left (and goes to bottom right). It starts red, transitioning to yellow:
+*/
+.container3{
+    width: 100vh;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(to bottom right, red , yellow);
+}
+    </style>
+</head>
+<body>
+    <div class="container1">Hello world Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolores nostrum rem laborum accusantium, eveniet vel laboriosam veniam, animi enim odio omnis possimus labore nemo modi soluta fugiat deserunt cum.
+        <p>top to bottom default</p>
+    </div>
+    <div class="container2">Hello world Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolores nostrum rem laborum accusantium, eveniet vel laboriosam veniam, animi enim odio omnis possimus labore nemo modi soluta fugiat deserunt cum.
+        <p>from left to right</p>
+    </div>
+
+    <div class="container3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis explicabo et optio, consectetur odio est libero vitae tempora perferendis ipsum accusamus aliquam sed? Veritatis quos, nobis reiciendis ducimus unde placeat!
+
+        <p>top left to bottom right</p>
+    </div>
+
+</body>
+</html>

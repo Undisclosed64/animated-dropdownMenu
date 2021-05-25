@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /*TRANSITION:CSS transitions allows you to change property values smoothly, over a given duration.Properties are:transition,
+transition-delay
+transition-duration
+transition-property
+transition-timing-function
+To create a transition effect, you must specify two things:
+the CSS property you want to add an effect to
+the duration of the effect
+Note: If the duration part is not specified, the transition will have no effect, because the default value is 0.
+The following example shows a 100px * 100px red <div> element. The <div> element has also specified a transition effect for the width property, with a duration of 2 seconds:The transition effect will start when the specified CSS property (width) changes value.
+*/
+button{
+    width: 100px;
+  height: 100px;
+  background: red;
+  transition: width 2s;
+}
+button:hover{
+    width: 1000px;
+}
+/*he following example adds a transition effect for both the width and height property, with a duration of 2 seconds for the width and 4 seconds for the height:
+*/
+#b {
+    width: 150px;
+    height: 150px;
+    background-color: aqua;
+  transition: width 3s, height 4s;
+}
+#b:hover{
+    width: 400px;
+    height: 300px;
+}
+/*The transition-timing-function property specifies the speed curve of the transition effect.
+
+The transition-timing-function property can have the following values:
+
+ease - specifies a transition effect with a slow start, then fast, then end slowly (this is default)
+linear - specifies a transition effect with the same speed from start to end
+ease-in - specifies a transition effect with a slow start
+ease-out - specifies a transition effect with a slow end
+ease-in-out - specifies a transition effect with a slow start and end
+cubic-bezier(n,n,n,n) - lets you define your own values in a cubic-bezier function*/
+
+
+#a {
+  transition-property: width;
+  transition-duration: 2s;
+  transition-timing-function: ease-in;
+  transition-delay: 1s;
+  width: 400px;
+  height: 200px;
+  background-color: purple;/*or by using the shorthand property transition:
+Example
+div{
+  transition: width 2s linear 1s;
+}*/
+}
+#a:hover{
+    width: 800px;
+}
+    </style>
+</head>
+<body>
+<button>apply transition</button>
+<div id="b">Transit me</div>
+<div id = "a">transit</div>
+</body>
+</html>

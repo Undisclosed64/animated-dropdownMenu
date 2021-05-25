@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* Learning Outcome 
+ Describe the pros and cons of using classes in JavaScript.
+Briefly discuss how JavaScript’s object creation differs from a language like Java or Ruby.
+Explain the differences between using a class to define a constructor and other prototype methods.
+Explain what “getters” & “setters” are.
+Understand what computed names and class fields are.
+Describe function binding.
+Be able to use inheritance with classes.
+Briefly talk about the conflict in JS with functional programming and classes.
+*/
+
+        ////////Classes//////////////////
+ /*ES6, however, did introduce a syntax for object creation that uses the class keyword. It is basically a new syntax that does the exact same thing as the object constructors and prototypes we learned about in the constructor lesson.
+
+ class User {
+  constructor(name) {
+    this.name = name;
+  }
+  sayHi() {
+    alert(this.name);
+  }
+}
+
+// Usage:
+let user = new User("John");
+user.sayHi();
+When new User("John") is called:
+
+A new object is created.
+The constructor runs with the given argument and assigns it to this.name.
+
+Not just a syntactic sugar
+Sometimes people say that class is a “syntactic sugar” (syntax that is designed to make things easier to read, but doesn’t introduce anything new), because we could actually declare the same without class keyword at all:
+// rewriting class User in pure functions
+
+// 1. Create constructor function
+function User(name) {
+  this.name = name;
+}
+// a function prototype has "constructor" property by default,
+// so we don't need to create it
+
+// 2. Add the method to prototype
+User.prototype.sayHi = function() {
+  alert(this.name);
+};
+
+// Usage:
+let user = new User("John");
+user.sayHi();
+The result of this definition is about the same. So, there are indeed reasons why class can be considered a syntactic sugar to define a constructor together with its prototype methods.
+
+Still, there are important differences.
+First, a function created by class is labelled by a special internal property [[FunctionKind]]:"classConstructor". So it’s not entirely the same as creating it manually.
+
+The language checks for that property in a variety of places. For example, unlike a regular function, it must be called with new:
+
+class User {
+  constructor() {}
+}
+
+alert(typeof User); // function
+User(); // Error: Class constructor User cannot be invoked without 'new'
+
+Class Expression
+Just like functions, classes can be defined inside another expression, passed around, returned, assigned, etc.
+Here’s an example of a class expression:
+
+let User = class {
+  sayHi() {
+    alert("Hello");
+  }
+};
+
+Similar to Named Function Expressions, class expressions may have a name.
+If a class expression has a name, it’s visible inside the class only:
+
+// "Named Class Expression"
+// (no such term in the spec, but that's similar to Named Function Expression)
+let User = class MyClass {
+  sayHi() {
+    alert(MyClass); // MyClass name is visible only inside the class
+  }
+};
+new User().sayHi(); // works, shows MyClass definition
+alert(MyClass); // error, MyClass name isn't visible outside of the class
+
+
+////////////////////////////////
+Class fields
+Old browsers may need a polyfill
+Class fields are a recent addition to the language.
+
+Previously, our classes only had methods.
+
+“Class fields” is a syntax that allows to add any properties.
+
+For instance, let’s add name property to class User:
+
+class User {
+  name = "John";
+
+  sayHi() {
+    alert(`Hello, ${this.name}!`);
+  }
+}
+
+new User().sayHi(); // Hello, John!
+So, we just write " = " in the declaration, and that’s it.
+
+The important difference of class fields is that they are set on individual objects, not User.prototype:
+class User {
+  name = "John";
+}
+let user = new User();
+alert(user.name); // John
+alert(User.prototype.name); // undefined
+
+/////Making bound methods with class fields///////////////
+As demonstrated in the chapter Function binding functions in JavaScript have a dynamic this. It depends on the context of the call.
+So if an object method is passed around and called in another context, this won’t be a reference to its object any more.
+
+For instance, this code will show undefined:
+
+class Button {
+  constructor(value) {
+    this.value = value;
+  }
+
+  click() {
+    alert(this.value);
+  }
+}
+
+let button = new Button("hello");
+
+setTimeout(button.click, 1000); // undefined
+The problem is called "losing this".
+
+There are two approaches to fixing it, as discussed in the chapter Function binding:
+Pass a wrapper-function, such as setTimeout(() => button.click(), 1000).
+Bind the method to object, e.g. in the constructor.
+
+Class fields provide another, quite elegant syntax:
+
+class Button {
+  constructor(value) {
+    this.value = value;
+  }
+  click = () => {
+    alert(this.value);
+  }
+}
+
+let button = new Button("hello");
+setTimeout(button.click, 1000); // hello
+The class field click = () => {...} is created on a per-object basis, there’s a separate function for each Button object, with this inside it referencing that object. We can pass button.click around anywhere, and the value of this will always be correct.
+
+
+
+
+
+
+
+
+
+ */
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+/*TRANSFORM:With the CSS transform property you can use the following 2D transformation methods:   
+translate()
+rotate()
+scaleX()
+scaleY()
+scale()
+skewX()
+skewY()
+skew()
+matrix()
+
+1)The translate() method moves an element from its current position (according to the parameters given for the X-axis and the Y-axis).
+
+The following 1st example moves the <div> element 50 pixels to the right, and 100 pixels down from its current position:
+
+2)The scale() method increases or decreases the size of an element (according to the parameters given for the width and height).
+
+The following example increases the <button> element to be two times of its original width, and three times of its original height: 
+The scaleX() method increases or decreases the width of an element. transform: scaleX(0.5);It will decrease the width to be half of it's original width.
+
+The scaleY() method increases or decreases the height of an element.
+
+3)The matrix() method combines all the 2D transform methods into one.
+The matrix() method take six parameters, containing mathematic functions, which allows you to rotate, scale, move (translate), and skew elements.
+The parameters are as follow: matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY())
+*/
+
+    button{
+       width: 30vh; 
+       height: 40vh;
+       background-color: rgb(209, 19, 19);
+       padding: 40px;
+       text-align: center;
+       border:none;
+    }
+    .one:hover{
+        transform: translate(10px, 150px);
+        transform: scale(2,3);
+
+    }
+
+
+    /*With the CSS transform property you can use the following 3D transformation methods:
+
+rotateX()
+rotateY()
+rotateZ()
+The rotateX() method rotates an element around its X-axis at a given degree,rotate y around the y axis and z around z axis.*/
+
+.two:hover{
+transform: rotateZ(150deg);
+}
+        </style>
+</head>
+<body>
+    <button class="one">transform me</button>
+    <button class="two">transform ME</button>
+</body>
+</html>

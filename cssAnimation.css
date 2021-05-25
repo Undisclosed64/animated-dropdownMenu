@@ -1,0 +1,92 @@
+/*An animation lets an element gradually change from one style to another.It has following properties:
+ @keyframes
+animation-name
+animation-duration
+animation-delay
+animation-iteration-count
+animation-direction
+animation-timing-function
+animation-fill-mode
+animation-->
+
+1)The @keyframes Rule
+When you specify CSS styles inside the @keyframes rule, the animation will gradually change from the current style to the new style at certain times.
+
+To get an animation to work, you must bind the animation to an element.
+
+The following example binds the "example" animation to the <div> element. The animation will last for 4 seconds, and it will gradually change the background-color of the <div> element from "red" to "yellow".
+
+2)The animation-iteration-count property specifies the number of times an animation should run.It can be infinite or a specified number of times.
+
+3)The animation-direction property specifies whether an animation should be played forwards, backwards or in alternate cycles.
+The animation-direction property can have the following values:
+
+normal - The animation is played as normal (forwards). This is default
+reverse - The animation is played in reverse direction (backwards)
+alternate - The animation is played forwards first, then backwards
+alternate-reverse - The animation is played backwards first, then forwards.
+
+
+4)animation timing function is same as transition timing functions like ease in,easeout etc.
+
+5)ANIMATION SHORTHAND:The example below uses six of the animation properties:
+div {
+  animation-name: example;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+div {
+  animation: example 5s linear 2s infinite alternate;
+}
+*/
+
+/*The animation code*/
+@keyframes example {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: yellow;
+  }
+}
+/*the element we are applying animation to*/
+.a {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  animation-duration: 6s;
+  animation-name: example;
+  margin-bottom: 10vh;
+  animation-iteration-count: infinite;
+}
+/*In the example above we have specified when the style will change by using the keywords "from" and "to" (which represents 0% (start) and 100% (complete)).
+It is also possible to use percent. By using percent, you can add as many style changes as you like.
+
+The following example will change the background-color of the <div> element when the animation is 25% complete, 50% complete, and again when the animation is 100% complete:*/
+@keyframes myAnimation {
+  0% {
+    background-color: purple;
+  }
+  25% {
+    background-color: rgb(56, 56, 228);
+  }
+  50% {
+    background-color: burlywood;
+  }
+  100% {
+    background-color: chocolate;
+  }
+}
+
+button {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(95, 212, 16);
+  animation-name: myAnimation;
+  animation-delay: 2s;
+  animation-duration: 5s;
+  animation-iteration-count: 4;
+}

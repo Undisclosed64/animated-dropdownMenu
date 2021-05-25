@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1></h1>
+    <input type="text">
+    <button>Submit</button>
+    <script>
+        const name = document.querySelector('input');
+        const heading = document.querySelector('h1');
+        const btn = document.querySelector('button');
+        btn.addEventListener("click",function(){
+console.log(name.value);
+const name_ = name.value;
+console.log(name_);
+        const saveName = localStorage.setItem("username",name_);
+       const getName = localStorage.getItem('username');
+    
+     // console.log(getName);
+     if(localStorage != null){
+        heading.textContent = 'Good Morning,' + getName;
+     } 
+    })
+    </script>
+</body>
+</html>
