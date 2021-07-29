@@ -1,6 +1,3 @@
-exports.printMsg = function() {
-    console.log("This is a message from the package");
-  }
 
 //select buttons and add event listener
 const categoriesBtn = document.querySelectorAll('.button');
